@@ -29,6 +29,10 @@ const Form = (props) => {
 
    const submit = (event) => {
     event.preventDefault()
+    axios.post('https://reqres.io/api/users', form)
+        .then(res =>{
+            console.log(res)
+        })
     newOrders(form)
     history.push('/Order')
    }
