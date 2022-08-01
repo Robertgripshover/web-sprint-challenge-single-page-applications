@@ -18,9 +18,9 @@ const Form = (props) => {
    const {form, setForm} = useState(initialState)
 
    const changes = (event) =>{
-        console.log(event.target.value)
-        const {value, name, type} = event.target
-
+        const {name, type, checked} = event.target
+        let {value} = event.target
+        value = type === 'checkbox' ? checked : value
         setForm({...form, [name]: value})
    }
 
@@ -43,7 +43,7 @@ const Form = (props) => {
                         <option value='Small'>Small</option>
                      </select>
                 </label>
-                    <input type='checkbox' name='accepted' />{/*I think that it might need to be a 'checklist' instead of a 'checkbox'?*/}
+                    <input onChange={changes} type='checkbox' name='accepted' value={form.accepted}/>{/*I think that it might need to be a 'checklist' instead of a 'checkbox'?*/}
                 <label>
 
                 </label>
