@@ -7,6 +7,13 @@ import './app.css'
 
 
 const App = () => {
+
+  const [orders, setOrders] = useState([])
+
+  const newOrder  = (order) => {
+    setOrders([order, ...orders])
+  }
+
   return (
     <>
       <header>
@@ -23,12 +30,13 @@ const App = () => {
           <Route exact path='/'>
           <>
             <h2> Welcome Please seleect a pizza!</h2>
+            <p>{orders.length} served</p>
             {/* <img src='/Assets/Pizza' alt='A fresh margaita style pizza fresh out of the oven' /> */}
           </>
           </Route>
 
           <Route exact path='/Form'>
-            <Form /> {/*Rendering the Form*/}
+            <Form newOrder={newOrder} /> {/*Rendering the Form*/}
           </Route>
 
           <Route exact path='/Order'>

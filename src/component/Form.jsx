@@ -14,10 +14,10 @@ const initialState = {
 
 const Form = (props) => {
 
+    const {newOrders} = props
+
     const history = useHistory()
 
-    console.log(history)
-  
    const {form, setForm} = useState(initialState)
 
    const changes = (event) =>{
@@ -29,6 +29,7 @@ const Form = (props) => {
 
    const submit = (event) => {
     event.preventDefault()
+    newOrders(form)
     history.push('/Order')
    }
 
