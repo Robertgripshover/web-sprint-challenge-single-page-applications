@@ -3,7 +3,7 @@ import React from "react";
 import {Link, Route, Switch} from 'react-router-dom';
 import Form from './component/Form';
 import Order from './component/Order';
-import './app.css'
+import './App.css'
 
 
 const App = () => {
