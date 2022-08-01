@@ -1,7 +1,8 @@
+import {useState} from 'react'
 import React from "react";
 import {Link, Route, Switch} from 'react-router-dom';
 import Form from './component/Form';
-import Pizza from './component/Pizza';
+import Order from './component/Order';
 import './app.css'
 
 
@@ -11,7 +12,7 @@ const App = () => {
       <header>
          <Link to='/'>HomePage</Link>
          <Link to='/Form'>Form</Link> {/*Need to add the 'Form' ref  instaead of just the /*/}
-         <Link to='/Pizza'>Pizza</Link> {/*Need to add the 'Pizza' ref instead of just the / */}
+         <Link to='/Order'>Finished Order</Link> {/*Need to add the 'Pizza' ref instead of just the / */}
 
       </header>
       <h1>Lambda Eats</h1>
@@ -30,8 +31,8 @@ const App = () => {
             <Form /> {/*Rendering the Form*/}
           </Route>
 
-          <Route exact path='/Pizza'>
-            <Pizza /> {/*Rendering the Pizza confirmation*/}
+          <Route exact path='/Order'>
+            <Order /> {/*Rendering the Pizza confirmation*/}
           </Route>
 
         </Switch>

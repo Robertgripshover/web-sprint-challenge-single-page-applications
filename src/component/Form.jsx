@@ -1,20 +1,23 @@
 import React, {useState} from 'react'
 import { useReducer } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 const initialState = {
     person: 'This is a person',
     size: '', //gonna be a dropdown
-    topping1: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    topping2: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    topping3: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    topping4: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    feta: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    olives: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    peppers: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    onions: true, //Need to find out what to put instead of bool maybe true or false? checklist
     special: '',
     }
 
 const Form = (props) => {
-    console.log(props)
 
+    const history = useHistory()
+
+    console.log(history)
+  
    const {form, setForm} = useState(initialState)
 
    const changes = (event) =>{
@@ -24,11 +27,16 @@ const Form = (props) => {
         setForm({...form, [name]: value})
    }
 
+   const submit = (event) => {
+    event.preventDefault()
+    history.push('/Order')
+   }
+
     return(
 
-        <article data-style='pizza-form'> 
+        <article> 
             <h2>Pizza Order Form</h2>
-            <form>
+            <form onSubmit={submit} id='pizza-form'>
                <label>
                 Enter your name:
                 <input onChange={changes} type='text' name='person' value={form.person} id='name-input'/>
@@ -43,7 +51,10 @@ const Form = (props) => {
                         <option value='Small'>Small</option>
                      </select>
                 </label>
-                    <input onChange={changes} type='checkbox' name='accepted' value={form.accepted}/>{/*I think that it might need to be a 'checklist' instead of a 'checkbox'?*/}
+                    <input onChange={changes} type='checkbox' name='feta' value={form.feta}/>
+                    <input onChange={changes} type='checkbox' name='olives' value={form.olives}/>
+                    <input onChange={changes} type='checkbox' name='peppers' value={form.peppers}/>
+                    <input onChange={changes} type='checkbox' name='onions' value={form.onions}/>{/*I think that it might need to be a 'checklist' instead of a 'checkbox'?*/}
                 <label>
 
                 </label>
@@ -52,6 +63,8 @@ const Form = (props) => {
                 Enter your special instructions here:
                 <input onChange={changes} type='text' name='special' value={form.special} id='special-text'/>
                 </label>
+
+                <button type='submit'>Submit Order</button>
             </form>
            
         </article>

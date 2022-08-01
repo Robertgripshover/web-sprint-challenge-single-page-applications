@@ -3,7 +3,7 @@ import { useReducer } from 'react'
 import { useParams } from 'react-router-dom'
 
 
-const Pizza = (props) => {
+const Order = (props) => {
     console.log(props)
 
 
@@ -13,4 +13,4 @@ const Pizza = (props) => {
 
 }
 
-export default Pizza
+export default Order
