@@ -1,6 +1,8 @@
 import React from "react";
 import {Link, Route, Switch} from 'react-router-dom';
 import Form from './component/Form';
+import Pizza from './component/Pizza';
+import './app.css'
 
 
 const App = () => {
@@ -9,7 +11,7 @@ const App = () => {
       <header>
          <Link to='/'>HomePage</Link>
          <Link to='/Form'>Form</Link> {/*Need to add the 'Form' ref  instaead of just the /*/}
-         <Link to='/'>Pizza</Link> {/*Need to add the 'Pizza' ref instead of just the / */}
+         <Link to='/Pizza'>Pizza</Link> {/*Need to add the 'Pizza' ref instead of just the / */}
 
       </header>
       <h1>Lambda Eats</h1>
@@ -20,12 +22,18 @@ const App = () => {
           <Route exact path='/'>
           <>
             <h2> Welcome Please seleect a pizza!</h2>
+            {/* <img src='/Assets/Pizza' alt='A fresh margaita style pizza fresh out of the oven' /> */}
           </>
           </Route>
 
           <Route exact path='/Form'>
             <Form /> {/*Rendering the Form*/}
           </Route>
+
+          <Route exact path='/Pizza'>
+            <Pizza /> {/*Rendering the Pizza confirmation*/}
+          </Route>
+
         </Switch>
 
       </main>
