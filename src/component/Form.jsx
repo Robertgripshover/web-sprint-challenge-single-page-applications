@@ -8,23 +8,31 @@ import '../App.css'
 
 
 const initialState = {
-    name: '',
-    size: '', //gonna be a dropdown
-    // feta: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    // olives: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    // peppers: true, //Need to find out what to put instead of bool maybe true or false? checklist
-    // onions: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    person: '',
+    size: '', 
+    // feta: true, 
+    // olives: true, 
+    // peppers: true, 
+    // onions: true, 
     special: ''
-    }
+    } //I will add back in the feta and things once I get everything else working
 
 const Form = (props) => {
 
-       const [form, setForm] = useState({
-            name: '',
-            size: '', 
-            special: ''
-        }) //Need to add all the others soon! Just gonna get these few working first, I will need to be adding the feta or not
 
+
+       const [form, setForm] = useState(initialState) 
+
+      
+      
+       const changes = (e) => {
+
+            console.log(e.target)
+            const {value, name, type} = e.target
+
+            setForm({...form, [name]: value})
+
+       }
 
 
 //     const formSchema = yup.object().shape({
@@ -56,7 +64,28 @@ const Form = (props) => {
 
            <img src={`../Assets/Pizza.jpg`} alt='A fresh baked pizza' />  {/*Can't seem to get this image to work */}
 
+            <form id='pizza-form'>
 
+                <label>
+                    Enter Your Name:
+                    <input onChange={changes} type='text' name='person' value={form.person} id='name-input' />
+                </label>
+
+                <label>
+
+                    Select Your Size:
+
+                    <select name='size' id='size-dropdown'>
+                        <option value='Small'>Small</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Large'>Large</option>
+                    </select>
+
+                </label>
+
+
+
+            </form>
 
 
            {/* <form onSubmit={submit} id='pizza-form'>
