@@ -1,21 +1,31 @@
 import React, {useState} from 'react';
 // import { useReducer } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+// import { useParams, useHistory } from 'react-router-dom';
 // import axios from 'axios';
 import * as yup from 'yup'
 import { useEffect } from 'react';
+import '../App.css'
 
-// const initialState = {
-//     name: '',
-//     size: '', //gonna be a dropdown
-//     feta: true, //Need to find out what to put instead of bool maybe true or false? checklist
-//     olives: true, //Need to find out what to put instead of bool maybe true or false? checklist
-//     peppers: true, //Need to find out what to put instead of bool maybe true or false? checklist
-//     onions: true, //Need to find out what to put instead of bool maybe true or false? checklist
-//     special: '',
-//     }
+
+const initialState = {
+    name: '',
+    size: '', //gonna be a dropdown
+    // feta: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    // olives: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    // peppers: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    // onions: true, //Need to find out what to put instead of bool maybe true or false? checklist
+    special: ''
+    }
 
 const Form = (props) => {
+
+       const [form, setForm] = useState({
+            name: '',
+            size: '', 
+            special: ''
+        }) //Need to add all the others soon! Just gonna get these few working first, I will need to be adding the feta or not
+
+
 
 //     const formSchema = yup.object().shape({
 //         name: yup.string().min(2, 'name must be at least 2 characters'),
@@ -27,12 +37,6 @@ const Form = (props) => {
 //         special: yup.string(),
 //     })
 
-//     const {newOrders} = props
-
-//     const history = useHistory()
-
-//    const {form, setForm} = useState(initialState)
-
 //    const [errors, setError]  = useState({
 //     person: ''
 //     // size: '', //gonna be a dropdown
@@ -43,47 +47,18 @@ const Form = (props) => {
 //     // special: '',
 //    })
 
-//    const [disabled, setDisabled] = userState(true, false) /*time stamp 2:13:40 on Brians youtube video explains this*/
 
-//    const validateChange = (name, value) => {
-//         yup.reach(formSchema, name)
-//             .validate(value)
-//             .then(()=>{
-//                 setError({...errors, [name]: ''})
-//             })
-//             .catch((err)=>{
-//                 setError({...errors, [name]: err.errors[0]})
-//             })
-//    }
-
-//    const changes = (event) =>{
-//         const {name, type, checked} = event.target
-//         let {value} = event.target
-//         value = type === 'checkbox' ? checked : value
-//         validateChange(name, value)
-//         setForm({...form, [name]: value})
-//    }
-
-//    const submit = (event) => {
-//     event.preventDefault()
-//      newOrders(form)
-//     history.push('/Order')
-//    }
-
-
-//THIS PART MIGHT NOT NEED TO BE IN HEREVVV
-//    useEffect(() => {
-//     formSchema.isValid(form)
-//         .then((enabled) => {
-//             setDisabled(!enabled)
-//         })
-//    }, [form]) /*time stamp 2:13:40 on Brians youtube video explains this*/
-//THIS PART MIGHT NOT NEED TO BE IN HERE^^^
 
     return(
 
-        <article> 
+        <article data-style='order-form'> 
             <h2>Pizza Order Form</h2>
+
+           <img src={`../Assets/Pizza.jpg`} alt='A fresh baked pizza' />  {/*Can't seem to get this image to work */}
+
+
+
+
            {/* <form onSubmit={submit} id='pizza-form'>
                <label>
                 <span>
