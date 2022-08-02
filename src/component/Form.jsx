@@ -100,6 +100,11 @@ const Form = (props) => {
                     <input onChange={changes} type='checkbox' name='onions' value={form.onions} />
                 </label>
 
+                <label>
+                    Enter Your Special Instructions:
+                    <input onChange={changes} type='text' name='special' value={form.special} id='special-text' />
+                </label>
+
               
             </form>
 
