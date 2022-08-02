@@ -19,7 +19,7 @@ const App = () => {
       <header>
          <Link to='/'>HomePage</Link>
          <Link to='/Form'>Form</Link> {/*Need to add the 'Form' ref  instaead of just the /*/}
-         <Link to='/Order'>Finished Order</Link> {/*Need to add the 'Pizza' ref instead of just the / */}
+         <Link to='/Order'>Finished Order</Link> {/*Need to add the 'Pizza' ref instead of just the */}
 
       </header>
       <h1>Lambda Eats</h1>
