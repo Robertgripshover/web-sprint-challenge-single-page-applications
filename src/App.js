@@ -8,40 +8,41 @@ import './App.css'
 
 const App = () => {
 
-  const [orders, setOrders] = useState([])
+  // const [orders, setOrders] = useState([])
 
-  const newOrder  = (order) => {
-    setOrders([order, ...orders])
-  }
+  // const newOrder  = (order) => {
+  //   setOrders([order, ...orders])
+  // }
 
   return (
     <>
       <header>
          <Link to='/'>HomePage</Link>
-         <Link to='/Form'>Form</Link> {/*Need to add the 'Form' ref  instaead of just the /*/}
-         <Link to='/Order'>Finished Order</Link> {/*Need to add the 'Pizza' ref instead of just the */}
+         <Link to='/Form'>Form</Link> 
+         {/* <Link to='/Order'>Finished Order</Link>  */}
 
       </header>
       <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
+      
       <main>
 
         <Switch>
           <Route exact path='/'>
           <>
-            <h2> Welcome Please seleect a pizza!</h2>
-            <p>{orders.length} served</p>
-            {/* <img src='/Assets/Pizza' alt='A fresh margaita style pizza fresh out of the oven' /> */}
+            <h2> Welcome, please customize a pizza!</h2>
+                      
           </>
           </Route>
 
           <Route exact path='/Form'>
-            <Form newOrder={newOrder} /> {/*Rendering the Form*/}
+
+            <Form />
+           
           </Route>
 
-          <Route exact path='/Order'>
-            <Order /> {/*Rendering the Pizza confirmation*/}
-          </Route>
+          {/* <Route exact path='/Order.jsx'>
+            <Order />
+          </Route> */}
 
         </Switch>
 
