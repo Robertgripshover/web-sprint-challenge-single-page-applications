@@ -9,11 +9,11 @@ import '../App.css'
 
 const initialState = {
     person: '',
-    size: '', 
-    // feta: true, 
-    // olives: true, 
-    // peppers: true, 
-    // onions: true, 
+    size: '',
+    feta: true,
+    olives: true, 
+    peppers: true, 
+    onions: true, 
     special: ''
     } //I will add back in the feta and things once I get everything else working
 
@@ -28,7 +28,12 @@ const Form = (props) => {
        const changes = (e) => {
 
             console.log(e.target)
-            const {value, name, type} = e.target
+
+            const {name, type, checked} = e.target
+
+            let {value} = e.target 
+
+            value = type === 'checkbox' ? checked: value
 
             setForm({...form, [name]: value})
 
@@ -75,7 +80,8 @@ const Form = (props) => {
 
                     Select Your Size:
 
-                    <select name='size' id='size-dropdown'>
+                    <select onChange={changes} name='size' id='size-dropdown'>
+                        <option value=''>Please Select</option>
                         <option value='Small'>Small</option>
                         <option value='Medium'>Medium</option>
                         <option value='Large'>Large</option>
@@ -83,8 +89,18 @@ const Form = (props) => {
 
                 </label>
 
+                <label>
+                    I want Feta!:
+                    <input onChange={changes} type='checkbox' name='feta' value={form.feta} />
+                    I want olives!:
+                    <input onChange={changes} type='checkbox' name='olives' value={form.olives} />
+                    I want peppers!:
+                    <input onChange={changes} type='checkbox' name='peppers' value={form.peppers} />
+                    I want onions!:
+                    <input onChange={changes} type='checkbox' name='onions' value={form.onions} />
+                </label>
 
-
+              
             </form>
 
 
