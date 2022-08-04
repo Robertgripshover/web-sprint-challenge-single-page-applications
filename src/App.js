@@ -2,7 +2,7 @@ import {useState} from 'react'
 import React from "react";
 import {Link, Route, Switch} from 'react-router-dom';
 import Form from './component/Form';
-import Order from './component/Order';
+// import Order from './component/Order';
 import './App.css'
 
 
