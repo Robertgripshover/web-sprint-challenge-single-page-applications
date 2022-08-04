@@ -60,7 +60,11 @@ const Form = (props) => {
 //     // special: '',
 //    })
 
+       const submit = (ex) => {
 
+
+
+       }
 
     return(
 
@@ -105,6 +109,8 @@ const Form = (props) => {
                     Enter Your Special Instructions:
                     <input onChange={changes} type='text' name='special' value={form.special} id='special-text' />
                 </label>
+
+                <button type='submit'>Submit</button>
 
               
             </form>
