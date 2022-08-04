@@ -40,15 +40,15 @@ const Form = (props) => {
        }
 
 
-//     const formSchema = yup.object().shape({
-//         name: yup.string().min(2, 'name must be at least 2 characters'),
-//         size: yup.string(), //gonna be a dropdown
-//         feta: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-//         olives: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-//         peppers: yup.boolean(),//Need to find out what to put instead of bool maybe true or false? checklist
-//         onions: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-//         special: yup.string(),
-//     })
+    // const formSchema = yup.object().shape({
+    //     name: yup.string().min(2, 'name must be at least 2 characters'),
+    //     size: yup.string(), //gonna be a dropdown
+    //     feta: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
+    //     olives: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
+    //     peppers: yup.boolean(),//Need to find out what to put instead of bool maybe true or false? checklist
+    //     onions: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
+    //     special: yup.string(),
+    // })
 
 //    const [errors, setError]  = useState({
 //     person: ''
@@ -65,6 +65,7 @@ const Form = (props) => {
     return(
 
         <article data-style='order-form'> 
+
             <h2>Pizza Order Form</h2>
 
            <img src={`../Assets/Pizza.jpg`} alt='A fresh baked pizza' />  {/*Can't seem to get this image to work */}

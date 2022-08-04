@@ -2,6 +2,7 @@ import {useState} from 'react'
 import React from "react";
 import {Link, Route, Switch} from 'react-router-dom';
 import Form from './component/Form';
+import Order from './component/Orders';
 // import Order from './component/Order';
 import './App.css'
 
@@ -19,6 +20,7 @@ const App = () => {
       <header>
          <Link to='/'>HomePage</Link>
          <Link to='/Form'>Form</Link> 
+         <Link to='/Order'>All Orders</Link>
          {/* <Link to='/Order'>Finished Order</Link>  */}
 
       </header>
@@ -40,9 +42,9 @@ const App = () => {
            
           </Route>
 
-          {/* <Route exact path='/Order.jsx'>
+          <Route exact path='/Order'>
             <Order />
-          </Route> */}
+          </Route>
 
         </Switch>
 
