@@ -9,11 +9,11 @@ import './App.css'
 
 const App = () => {
 
-  // const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState([])
 
-  // const newOrder  = (order) => {
-  //   setOrders([order, ...orders])
-  // }
+  const newOrder  = (order) => {
+    setOrders([order, ...orders])
+  }
 
   return (
     <>
@@ -32,13 +32,14 @@ const App = () => {
           <Route exact path='/'>
           <>
             <h2> Welcome, please customize a pizza!</h2>
+            <p>{orders.length} delicious pizzas served!</p>
                       
           </>
           </Route>
 
           <Route exact path='/Form'>
 
-            <Form />
+            <Form newOrder={newOrder}/>
            
           </Route>
 

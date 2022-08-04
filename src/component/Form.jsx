@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import { useReducer } from 'react';
-// import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 // import axios from 'axios';
 import * as yup from 'yup'
 import { useEffect } from 'react';
@@ -15,29 +15,28 @@ const initialState = {
     peppers: true, 
     onions: true, 
     special: ''
-    } //I will add back in the feta and things once I get everything else working
+    } 
 
 const Form = (props) => {
 
+    const {newOrder} = props
 
+    const history = useHistory()
 
-       const [form, setForm] = useState(initialState) 
+    const [form, setForm] = useState(initialState) 
 
-      
-      
-       const changes = (e) => {
+            
+    const changes = (e) => {
 
-            console.log(e.target)
+        const {name, type, checked} = e.target
 
-            const {name, type, checked} = e.target
+        let {value} = e.target 
 
-            let {value} = e.target 
+        value = type === 'checkbox' ? checked: value
 
-            value = type === 'checkbox' ? checked: value
+        setForm({...form, [name]: value})
 
-            setForm({...form, [name]: value})
-
-       }
+    } //end of changes function
 
 
     // const formSchema = yup.object().shape({
@@ -60,11 +59,11 @@ const Form = (props) => {
 //     // special: '',
 //    })
 
-       const submit = (ex) => {
-
-
-
-       }
+    const submit = (e) => {
+        e.preventDefault()
+        newOrder(form)
+        history.push('/Order')
+    }
 
     return(
 
@@ -74,7 +73,7 @@ const Form = (props) => {
 
            <img src={`../Assets/Pizza.jpg`} alt='A fresh baked pizza' />  {/*Can't seem to get this image to work */}
 
-            <form id='pizza-form'>
+            <form onSubmit={submit} id='pizza-form'>
 
                 <label>
                     Enter Your Name:
