@@ -1,14 +1,27 @@
-import React from "react"
 
+const Order = (props) => {
 
-const Order = () => {
+    console.log(props)
+
+    const {orders} = props
 
     return (
 
         <>
-        
-            This is the order page
 
+         {orders.map(order => (
+
+            <div>  
+
+                 <h3>{order.person}</h3>
+                 <p>{`${order.person} is getting some plaza!!!`}</p>
+
+            </div>   
+
+
+         ))} 
+            
+    
         </>        
 
     )
