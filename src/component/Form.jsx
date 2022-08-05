@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 // import { useReducer } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 import * as yup from 'yup'
 import { useEffect } from 'react';
 import '../App.css'
@@ -61,6 +61,11 @@ const Form = (props) => {
 
     const submit = (e) => {
         e.preventDefault()
+
+        axios.post('https://reqres.io/api/users', form)
+
+        console.log(form)
+
         newOrder(form)
         history.push('/Order')
     }
@@ -109,7 +114,7 @@ const Form = (props) => {
                     <input onChange={changes} type='text' name='special' value={form.special} id='special-text' />
                 </label>
 
-                <button type='submit'>Submit</button>
+                <button type='submit' id='order-button'>Submit</button>
 
               
             </form>

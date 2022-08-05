@@ -9,18 +9,8 @@ const Order = (props) => {
 
         <>
 
-         {orderInStuff.map(ordering => (
-
-            <div>  
-
-                 <h3>{ordering.person}</h3>
-                 <p>{`${ordering.person} is getting some plaza!!!`}</p>
-
-            </div>   
-
-
-         ))} 
-            
+        <h2>So For this is all I have!</h2>   
+        <h3>I need to try and make some of the orders populate!!</h3>           
     
         </>        
 
