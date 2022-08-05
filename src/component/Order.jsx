@@ -1,8 +1,6 @@
 
 const Order = (props) => {
 
-    console.log(props)
-
     const {orderInStuff} = props
 
     return (

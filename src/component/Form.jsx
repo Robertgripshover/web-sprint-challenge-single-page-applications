@@ -19,13 +19,32 @@ const initialState = {
 
 const Form = (props) => {
 
+    const formSchema = yup.object().shape({
+        person: yup.string().min(2, 'name must be at least 2 characters')
+     })
+
     const {newOrder} = props
 
     const history = useHistory()
 
-    const [form, setForm] = useState(initialState) 
+    const [form, setForm] = useState(initialState)
+    
+    const [error, setError] = useState(
+        person: '',
 
-            
+        )
+
+        const validateChange = (name, value) => {
+            yup.reach(formSchema, name)
+                .validate(value)
+                .then(() => {
+                    setError({...error, [name]: ''})
+                })
+                .catch((error)=> {
+                    setError({...error, [name]: error.errors[0]})
+                })
+        }
+         
     const changes = (e) => {
 
         const {name, type, checked} = e.target
@@ -39,36 +58,25 @@ const Form = (props) => {
     } //end of changes function
 
 
-    // const formSchema = yup.object().shape({
-    //     name: yup.string().min(2, 'name must be at least 2 characters'),
-    //     size: yup.string(), //gonna be a dropdown
-    //     feta: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-    //     olives: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-    //     peppers: yup.boolean(),//Need to find out what to put instead of bool maybe true or false? checklist
-    //     onions: yup.boolean(), //Need to find out what to put instead of bool maybe true or false? checklist
-    //     special: yup.string(),
-    // })
-
-//    const [errors, setError]  = useState({
-//     person: ''
-//     // size: '', //gonna be a dropdown
-//     // feta: '', //Need to find out what to put instead of bool maybe true or false? checklist
-//     // olives: '', //Need to find out what to put instead of bool maybe true or false? checklist
-//     // peppers: '', //Need to find out what to put instead of bool maybe true or false? checklist
-//     // onions: '', //Need to find out what to put instead of bool maybe true or false? checklist
-//     // special: '',
-//    })
-
-    const submit = (e) => {
+    
+   const submit = (e) => {
         e.preventDefault()
 
-        axios.post('https://reqres.io/api/users', form)
+        axios.post('https://reqres.in/api/orders', form)
+            .then(res =>{
+                newOrder(res.data)
+                setForm(initialState)
+                history.push('/Order') 
+            })
 
-        console.log(form)
+      }
 
-        newOrder(form)
-        history.push('/Order')
-    }
+    //   useEffect(()=>{
+    //     formSchema.isValid(form)
+    //         .then((enabled)=>{
+    //            setDisabled(!enabled)     
+    //         })
+    // }, [form])
 
     return(
 
@@ -81,7 +89,7 @@ const Form = (props) => {
             <form onSubmit={submit} id='pizza-form'>
 
                 <label>
-                    Enter Your Name:
+                    {`Enter Your Name: ${error.person}`}
                     <input onChange={changes} type='text' name='person' value={form.person} id='name-input' />
                 </label>
 
