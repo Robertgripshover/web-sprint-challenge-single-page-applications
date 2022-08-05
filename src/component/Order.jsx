@@ -3,18 +3,18 @@ const Order = (props) => {
 
     console.log(props)
 
-    const {orders} = props
+    const {orderInStuff} = props
 
     return (
 
         <>
 
-         {orders.map(order => (
+         {orderInStuff.map(ordering => (
 
             <div>  
 
-                 <h3>{order.person}</h3>
-                 <p>{`${order.person} is getting some plaza!!!`}</p>
+                 <h3>{ordering.person}</h3>
+                 <p>{`${ordering.person} is getting some plaza!!!`}</p>
 
             </div>   
 
