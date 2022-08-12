@@ -30,7 +30,7 @@ const Form = (props) => {
     const [form, setForm] = useState(initialState)
     
     const [error, setError] = useState(
-        person: '',
+        // person: ''
 
         )
 
