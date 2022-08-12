@@ -29,10 +29,11 @@ const Form = (props) => {
 
     const [form, setForm] = useState(initialState)
     
-    const [error, setError] = useState(
-        // person: ''
+    const [error, setError] = useState({
 
-        )
+        person: ""
+
+    })
 
         const validateChange = (name, value) => {
             yup.reach(formSchema, name)
