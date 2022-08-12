@@ -10,6 +10,11 @@ describe('', () => {
     const pizzaFormOrder = cy.get(`[data-test-id='goform']`)
     pizzaFormOrder.click()
     cy.contains('Pizza Order Form')
+    const submitBtn = () => cy.get(`[data-test-id='order-submit']`)
+
+    cy.get(`[data-test-id='order-name']`).type('pizzatest')
+
+    
   })
 
 })

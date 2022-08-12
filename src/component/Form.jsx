@@ -95,7 +95,7 @@ const Form = (props) => {
 
                 <label>
                    Enter Your Name: <span>{`${error.person}`}</span> 
-                    <input onChange={changes} type='text' name='person' value={form.person} id='name-input' />
+                    <input onChange={changes} data-test-id='order-name' type='text' name='person' value={form.person} id='name-input' />
                 </label>
 
                 <label>
@@ -127,7 +127,7 @@ const Form = (props) => {
                     <input onChange={changes} type='text' name='special' value={form.special} id='special-text' />
                 </label>
 
-                <button type='submit' id='order-button'>Submit</button>
+                <button data-test-id='order-submit' type='submit' id='order-button'>Submit</button>
 
               
             </form>
