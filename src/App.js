@@ -18,9 +18,9 @@ const App = () => {
   return (
     <>
       <header>
-         <Link to='/'>HomePage</Link>
-         <Link to='/Form'>Form</Link> 
-         <Link to='/Order'>All Orders</Link>
+         <Link to='/' data-test-id='gohome' >HomePage</Link>
+         <Link to='/Form' data-test-id='goform' >Form</Link> 
+         <Link to='/Order' data-test-id='goorder' >All Orders</Link>
          {/* <Link to='/Order'>Finished Order</Link>  */}
 
       </header>
