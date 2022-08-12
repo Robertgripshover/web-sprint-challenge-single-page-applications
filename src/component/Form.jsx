@@ -41,8 +41,8 @@ const Form = (props) => {
                 .then(() => {
                     setError({...error, [name]: ''})
                 })
-                .catch((error)=> {
-                    setError({...error, [name]: error.errors[0]})
+                .catch((err)=> {
+                    setError({...error, [name]: err.errors[0]})
                 })
             }
 
@@ -94,7 +94,7 @@ const Form = (props) => {
             <form onSubmit={submit} id='pizza-form'>
 
                 <label>
-                    {`Enter Your Name: ${error.person}`}
+                   Enter Your Name: <span>{`${error.person}`}</span> 
                     <input onChange={changes} type='text' name='person' value={form.person} id='name-input' />
                 </label>
 
