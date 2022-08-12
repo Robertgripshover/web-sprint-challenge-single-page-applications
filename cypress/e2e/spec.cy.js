@@ -14,7 +14,16 @@ describe('', () => {
 
     cy.get(`[data-test-id='order-name']`).type('pizzatest')
 
-    
+    cy.get(`[data-test-id='order-size']`).select('Small')
+
+    cy.get(`[data-test-id='order-feta']`).click()
+
+    cy.get(`[data-test-id='order-olives']`).click()
+
+    cy.get(`[data-test-id='order-peppers']`).click()
+
+    cy.get(`[data-test-id='order-onions']`).click()
+
   })
 
 })

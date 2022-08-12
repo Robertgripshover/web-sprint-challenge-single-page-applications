@@ -102,7 +102,7 @@ const Form = (props) => {
 
                     Select Your Size:
 
-                    <select onChange={changes} name='size' id='size-dropdown'>
+                    <select onChange={changes} data-test-id='order-size' name='size' id='size-dropdown'>
                         <option value=''>Please Select</option>
                         <option value='Small'>Small</option>
                         <option value='Medium'>Medium</option>
@@ -113,13 +113,13 @@ const Form = (props) => {
 
                 <label>
                     I want Feta!:
-                    <input onChange={changes} type='checkbox' name='feta' value={form.feta} />
+                    <input onChange={changes} data-test-id='order-feta' type='checkbox' name='feta' value={form.feta} />
                     I want olives!:
-                    <input onChange={changes} type='checkbox' name='olives' value={form.olives} />
+                    <input onChange={changes} data-test-id='order-olives' type='checkbox' name='olives' value={form.olives} />
                     I want peppers!:
-                    <input onChange={changes} type='checkbox' name='peppers' value={form.peppers} />
+                    <input onChange={changes} data-test-id='order-peppers' type='checkbox' name='peppers' value={form.peppers} />
                     I want onions!:
-                    <input onChange={changes} type='checkbox' name='onions' value={form.onions} />
+                    <input onChange={changes} data-test-id='order-onions' type='checkbox' name='onions' value={form.onions} />
                 </label>
 
                 <label>
