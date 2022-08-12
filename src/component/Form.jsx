@@ -44,7 +44,9 @@ const Form = (props) => {
                 .catch((error)=> {
                     setError({...error, [name]: error.errors[0]})
                 })
-        }
+            }
+
+    
          
     const changes = (e) => {
 
@@ -54,9 +56,11 @@ const Form = (props) => {
 
         value = type === 'checkbox' ? checked: value
 
+        validateChange(name, value)
+
         setForm({...form, [name]: value})
 
-    } //end of changes function
+    } 
 
 
     
